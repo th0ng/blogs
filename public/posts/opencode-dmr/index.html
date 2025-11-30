@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  
+    <title>Docker Model Runner with OpenCode :: Blog</title>
+  
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Create a local coding agent using OpenCode and Docker Model Runner." />
+<meta name="keywords" content=", " />
+
+  <meta name="robots" content="noodp" />
+
+<link rel="canonical" href="http://localhost:1313/posts/opencode-dmr/" />
+
+
+
+
+
+  
+  <link rel="stylesheet" href="http://localhost:1313/css/buttons.min.86f6b4c106b6c6eb690ae5203d36b442c1f66f718ff4e8164fa86cf6c61ad641.css">
+
+  
+  <link rel="stylesheet" href="http://localhost:1313/css/code.min.d529ea4b2fb8d34328d7d31afc5466d5f7bc2f0bc9abdd98b69385335d7baee4.css">
+
+  
+  <link rel="stylesheet" href="http://localhost:1313/css/fonts.min.5bb7ed13e1d00d8ff39ea84af26737007eb5051b157b86fc24487c94f3dc8bbe.css">
+
+  
+  <link rel="stylesheet" href="http://localhost:1313/css/footer.min.eb8dfc2c6a7eafa36cd3ba92d63e69e849e2200e0002a228d137f236b09ecd75.css">
+
+  
+  <link rel="stylesheet" href="http://localhost:1313/css/gist.min.a751e8b0abe1ba8bc53ced52a38b19d8950fe78ca29454ea8c2595cf26aad5c0.css">
+
+  
+  <link rel="stylesheet" href="http://localhost:1313/css/header.min.75c7eb0e2872d95ff48109c6647d0223a38db52e2561dd87966eb5fc7c6bdac6.css">
+
+  
+  <link rel="stylesheet" href="http://localhost:1313/css/main.min.36833afd348409fc6c3d09d0897c5833d9d5bf1ff31f5e60ea3ee42ce2b1268c.css">
+
+  
+  <link rel="stylesheet" href="http://localhost:1313/css/menu.min.3c17467ebeb3d38663dce68f71f519901124fa5cbb4519b2fb0667a21e9aca39.css">
+
+  
+  <link rel="stylesheet" href="http://localhost:1313/css/pagination.min.bbb986dbce00a5ce5aca0504b7925fc1c581992a4bf57f163e5d69cc1db7d836.css">
+
+  
+  <link rel="stylesheet" href="http://localhost:1313/css/post.min.e6dddd258e64c83e05cec0cd49c05216742d42fc8ecbfbe6b67083412b609bd3.css">
+
+  
+  <link rel="stylesheet" href="http://localhost:1313/css/syntax.min.a0773cce9310cb6d8ed23e50f005448facf29a53001b57e038828daa466b25c0.css">
+
+  
+  <link rel="stylesheet" href="http://localhost:1313/css/terminal.min.e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css">
+
+  
+  <link rel="stylesheet" href="http://localhost:1313/css/terms.min.b81791663c3790e738e571cdbf802312390d30e4b1d8dc9d814a5b5454d0ac11.css">
+
+
+
+
+
+
+
+<link rel="shortcut icon" href="http://localhost:1313/favicon.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
+
+
+<meta name="twitter:card" content="summary" />
+
+
+
+<meta property="og:locale" content="en" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="Docker Model Runner with OpenCode">
+<meta property="og:description" content="Create a local coding agent using OpenCode and Docker Model Runner." />
+<meta property="og:url" content="http://localhost:1313/posts/opencode-dmr/" />
+<meta property="og:site_name" content="Blog" />
+
+  
+  
+  <meta property="og:image" content="http://localhost:1313/">
+
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="627">
+
+
+  <meta property="article:published_time" content="2025-11-29 17:44:17 &#43;0100 CET" />
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+<body>
+
+
+<div class="container">
+
+  <header class="header">
+  <div class="header__inner">
+    <div class="header__logo">
+      <a href="http://localhost:1313/">
+  <div class="logo">
+    ~/th0ng/blogs
+  </div>
+</a>
+
+    </div>
+    
+    
+  </div>
+  
+</header>
+
+
+  <div class="content">
+    
+<article class="post">
+  <h1 class="post-title">
+    <a href="http://localhost:1313/posts/opencode-dmr/">Docker Model Runner with OpenCode</a>
+  </h1>
+  <div class="post-meta"><time class="post-date">2025-11-29</time><span class="post-author">Hoang Danh Thong</span></div>
+
+  
+    <span class="post-tags">
+      
+      #<a href="http://localhost:1313/tags/ai/">ai</a>&nbsp;
+      
+      #<a href="http://localhost:1313/tags/agent/">agent</a>&nbsp;
+      
+      #<a href="http://localhost:1313/tags/opensource/">opensource</a>&nbsp;
+      
+    </span>
+  
+  
+
+
+  
+
+  <div class="post-content"><div>
+        <p>OpenCode is awesome! It is a TUI AI coding agents which uses the <a href="https://ai-sdk.dev/">AI SDK</a> to support for 75+ LLM providers and also supports running <strong>local model</strong>.</p>
+<p>Docker Model Runner was launched with the purpose of making it <strong>simpler</strong> and <strong>faster</strong> to run and test AI models locally. It&rsquo;s built on top of <code>llama.cpp</code> and is accessible through the OpenAI API, which can be used by OpenCode. So, let&rsquo;s go ahead and create an AI agent for our agentic workflow that run completely local!</p>
+<h2 id="1-get-started-with-docker-model-runner-dmr">1. Get started with Docker Model Runner (DMR)<a href="#1-get-started-with-docker-model-runner-dmr" class="hanchor" ariaLabel="Anchor">#</a> </h2>
+<p>First, follow the <a href="https://docs.docker.com/ai/model-runner/get-started/">instructions</a> to enable docker model runner and start using pulled models.</p>
+<ul>
+<li>To check for available local models:</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>docker model list
+</span></span></code></pre></div><ul>
+<li>To list running models:</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>docker model ps
+</span></span></code></pre></div><h4 id="enable-host-side-tcp-support">Enable host-side TCP support:<a href="#enable-host-side-tcp-support" class="hanchor" ariaLabel="Anchor">#</a> </h4>
+<p>Let&rsquo;s enable host-side TCP support to prevent this from happening:
+<img src="/img/opencode-dmr/host-side-tcp.png" alt="Host-side TCP support not enabled"></p>
+<p>If you are using Docker Desktop, just simply select <strong>Enable host-side TCP support</strong> in Docker Desktop settings AI section.</p>
+<h1 id="todo-how-to-to-it-using-docker-cli">TODO: how to to it using docker cli???<a href="#todo-how-to-to-it-using-docker-cli" class="hanchor" ariaLabel="Anchor">#</a> </h1>
+<p>Now, you can try calling the endpoint to list models:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>curl http://localhost:12434/engines/llama.cpp/v1/models
+</span></span></code></pre></div><h2 id="2-using-dmr-models-in-opencode">2. Using DMR models in OpenCode<a href="#2-using-dmr-models-in-opencode" class="hanchor" ariaLabel="Anchor">#</a> </h2>
+<p>OpenCode can be configured using a JSON config file, and the global OpenCode config lives in <code>~/.config/opencode/opencode.json</code>. Per project configuration is also possible simply by adding a <code>opencode.json</code> in your project directory and its settings will merge or override the global settings.</p>
+<p>Go ahead and create the config file if it&rsquo;s not there, and let&rsquo;s add the DMR model to the configuration so that it could be used by OpenCode.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;$schema&#34;</span>: <span style="color:#e6db74">&#34;https://opencode.ai/config.json&#34;</span>,
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>The config file has a schema that&rsquo;s defined in <a href="https://opencode.ai/config.json">&lsquo;opencode.ai/config.json&rsquo;</a>, it helps the editor to validate and autocomplete based on the schema.</p>
+<p>DMR models can be added under <code>provider</code>, I am using <code>ai/qwen3-coder</code> as an example:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;dmr&#34;</span>: {
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;npm&#34;</span>: <span style="color:#e6db74">&#34;@ai-sdk/openai-compatible&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;name&#34;</span>: <span style="color:#e6db74">&#34;Docker Model Runner&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;options&#34;</span>: {
+</span></span><span style="display:flex;"><span>                <span style="color:#f92672">&#34;baseURL&#34;</span>: <span style="color:#e6db74">&#34;http://localhost:12434/engines/llama.cpp/v1&#34;</span>
+</span></span><span style="display:flex;"><span>            },
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;models&#34;</span>: {
+</span></span><span style="display:flex;"><span>                <span style="color:#f92672">&#34;ai/qwen3-coder:latest&#34;</span>: {
+</span></span><span style="display:flex;"><span>                    <span style="color:#f92672">&#34;name&#34;</span>: <span style="color:#e6db74">&#34;Qwen3 Coder&#34;</span>
+</span></span><span style="display:flex;"><span>                }
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>Multiple models could be added to the list, and to set the default model to be used, use:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span> <span style="color:#f92672">&#34;model&#34;</span>: <span style="color:#e6db74">&#34;dmr/${your_default_model}&#34;</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p><em><strong>Notes</strong></em> For the <code>baseURL</code>, &rsquo;llama.cpp&rsquo; can be left out.</p>
+<p>Our config file should now look something like this:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;$schema&#34;</span>: <span style="color:#e6db74">&#34;https://opencode.ai/config.json&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;provider&#34;</span>: {
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;dmr&#34;</span>: {
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;npm&#34;</span>: <span style="color:#e6db74">&#34;@ai-sdk/openai-compatible&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;name&#34;</span>: <span style="color:#e6db74">&#34;Docker Model Runner&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;options&#34;</span>: {
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;baseURL&#34;</span>: <span style="color:#e6db74">&#34;http://localhost:12334/engines/llama.cpp/v1&#34;</span>
+</span></span><span style="display:flex;"><span>      },
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;models&#34;</span>: {
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;ai/qwen3-coder:latest&#34;</span>: {
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">&#34;name&#34;</span>: <span style="color:#e6db74">&#34;Qwen3 Coder&#34;</span>
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>      }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;model&#34;</span>: <span style="color:#e6db74">&#34;dmr/ai/qwen3-coder:latest&#34;</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>And that&rsquo;s it, simple, right?
+<img src="/img/opencode-dmr/working-dmr.png" alt="Working DMR in OpenCode"></p>
+<h2 id="3-wait">3. Wait&hellip;<a href="#3-wait" class="hanchor" ariaLabel="Anchor">#</a> </h2>
+<p>If you are working with a large code-base, you will often run into this: <strong>the request exceeds the available context size</strong> isue, and listing the available models using <code>docker model list</code> results in:
+<img src="/img/opencode-dmr/model-ps.png" alt="result of model list"></p>
+<p>As you can see, there&rsquo;s no <code>CONTEXT</code> column listed, but it can actually be configured using:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>docker model configure --context-size<span style="color:#f92672">={</span>your_new_context_size<span style="color:#f92672">}</span> <span style="color:#f92672">{</span>your_model<span style="color:#f92672">}</span>
+</span></span></code></pre></div><p>Try increasing the context size of the model to match your need and also take into account of your hardware specs too.</p>
+
+      </div></div>
+
+  
+
+  
+</article>
+
+  </div>
+</div>
+
+</body>
+</html>

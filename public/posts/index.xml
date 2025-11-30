@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on Blog</title>
+    <link>http://localhost:1313/posts/</link>
+    <description>Recent content in Posts on Blog</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 29 Nov 2025 17:44:17 +0100</lastBuildDate>
+    <atom:link href="http://localhost:1313/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Docker Model Runner with OpenCode</title>
+      <link>http://localhost:1313/posts/opencode-dmr/</link>
+      <pubDate>Sat, 29 Nov 2025 17:44:17 +0100</pubDate>
+      <guid>http://localhost:1313/posts/opencode-dmr/</guid>
+      <description>&lt;p&gt;OpenCode is awesome! It is a TUI AI coding agents which uses the &lt;a href=&#34;https://ai-sdk.dev/&#34;&gt;AI SDK&lt;/a&gt; to support for 75+ LLM providers and also supports running &lt;strong&gt;local model&lt;/strong&gt;.&lt;/p&gt;&#xA;&lt;p&gt;Docker Model Runner was launched with the purpose of making it &lt;strong&gt;simpler&lt;/strong&gt; and &lt;strong&gt;faster&lt;/strong&gt; to run and test AI models locally. It&amp;rsquo;s built on top of &lt;code&gt;llama.cpp&lt;/code&gt; and is accessible through the OpenAI API, which can be used by OpenCode. So, let&amp;rsquo;s go ahead and create an AI agent for our agentic workflow that run completely local!&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
