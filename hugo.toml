@@ -1,7 +1,15 @@
 baseURL = 'https://example.org/'
 languageCode = 'en-us'
-title = 'Blog'
+title = 'Blogs by Thong'
 theme = 'terminal'
+
+[params]
+  contentTypeName = "posts"
+  showLanguageSelector = false
+  fullWidthTheme = false 
+  centerTheme = true
+  autoCover = true
+  showLastUpdated = false
 
 [caches]
   [caches.images]
