@@ -1,7 +1,7 @@
 baseURL = 'https://example.org/'
 languageCode = 'en-us'
 title = 'Blogs by Thong'
-theme = 'th0ng-term'
+theme = 'terminal-theme'
 
 [params]
   contentTypeName = "posts"
